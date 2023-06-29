@@ -1,8 +1,0 @@
-
-<h1><%= @car.brand %></h1>
-<p>Year of Production: <%= @car.year_of_production %></p>
-<p>Address: <%= @car.address %></p>
-<p>Price per Day: <%= @car.price_per_day %></p>
-
-<h2>Make a Reservation</h2>
-<%= render 'bookings/form', booking: @car.bookings.build %>

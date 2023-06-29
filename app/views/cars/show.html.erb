@@ -4,13 +4,13 @@
 <p>Price per Day: <%= @car.price_per_day %></p>
 
 <h2>Make a Reservation</h2>
-<%= simple_form_for([@car, @car.bookings.build]) do |form| %>
-  <%= form.input :starts_at, as: :string, label: 'Start Date', input_html: { class: 'flatpickr-range' } %>
-  <%= form.input :ends_at, as: :string, label: 'End Date', input_html: { class: 'flatpickr-range' } %>
+<%= simple_form_for([@car, @booking]) do |form| %>
+  <%= form.input :starts_at, as: :string, input_html: { id: "booking_starts_at", data: { controller: "datepicker" } } %>
+  <%= form.input :ends_at, as: :string, input_html: { id: "booking_starts_at", data: { controller: "datepicker" } } %>
 
   <%= form.button :submit, 'Reserve Car' %>
 <% end %>
 
 
-<%= link_to 'Show Car', car_path(@car) %>
+
 <%= link_to 'Back to  Cars', cars_path(@car) %>
