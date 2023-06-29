@@ -1,16 +1,27 @@
-<h1><%= @car.brand %></h1>
-<p>Year of Production: <%= @car.year_of_production %></p>
-<p>Address: <%= @car.address %></p>
-<p>Price per Day: <%= @car.price_per_day %></p>
+<div class="container">
+  <div class="card mb-3">
+    <div class="card-body">
+      <h1 class="card-title"><%= @car.brand %></h1>
+      <p class="card-text"><strong>Year of Production:</strong> <%= @car.year_of_production %></p>
+      <p class="card-text"><strong>Address:</strong> <%= @car.address %></p>
+      <p class="card-text"><strong>Price per Day:</strong> <%= @car.price_per_day %></p>
+    </div>
+  </div>
 
-<h2>Make a Reservation</h2>
-<%= simple_form_for([@car, @booking]) do |form| %>
-  <%= form.input :starts_at, as: :string, input_html: { id: "booking_starts_at", data: { controller: "datepicker" } } %>
-  <%= form.input :ends_at, as: :string, input_html: { id: "booking_starts_at", data: { controller: "datepicker" } } %>
+  <div class="card">
+    <div class="card-body">
+      <h2 class="card-title">Make a Reservation</h2>
+      <%= simple_form_for([@car, @booking]) do |form| %>
+        <div class="mb-3">
+          <%= form.input :starts_at, as: :string, input_html: { id: "booking_starts_at", data: { controller: "datepicker" } }, label: '<strong>Start Date:</strong>'.html_safe %>
+        </div>
+        <div class="mb-3">
+          <%= form.input :ends_at, as: :string, input_html: { id: "booking_ends_at", data: { controller: "datepicker" } }, label: '<strong>End Date:</strong>'.html_safe %>
+        </div>
+        <%= form.button :submit, 'Reserve Car', class: 'btn btn-primary' %>
+      <% end %>
+    </div>
+  </div>
 
-  <%= form.button :submit, 'Reserve Car' %>
-<% end %>
-
-
-
-<%= link_to 'Back to  Cars', cars_path(@car) %>
+  <%= link_to 'Back to Cars', cars_path(@car), class: 'btn btn-secondary mt-3' %>
+</div>
