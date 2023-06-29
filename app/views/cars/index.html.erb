@@ -1,15 +1,22 @@
-  <div class="container">
-  <h1>Cars</h1>
 
+  <div class="container">
   <div class="row">
-    <% @cars.each do |car| %>
-      <div class="col-md-4">
-        <div class="card bg-ligh mb-4">
+    <div class="col-md-6">
+      <!-- Car Cards -->
+      <% @cars.each do |car| %>
+        <div class="card mb-4">
           <div class="card-body">
             <h5 class="card-title"><%= link_to car.brand, car %></h5>
+            <!-- Other car details -->
           </div>
         </div>
+      <% end %>
+    </div>
+    <div class="col-md-6">
+      <!-- Image -->
+      <div class="banner" style="background-image: url('/assets/chev.jpg');">
+        <!-- Content for the image section -->
       </div>
-    <% end %>
+    </div>
   </div>
 </div>
