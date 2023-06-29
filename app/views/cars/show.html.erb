@@ -1,0 +1,16 @@
+<h1><%= @car.brand %></h1>
+<p>Year of Production: <%= @car.year_of_production %></p>
+<p>Address: <%= @car.address %></p>
+<p>Price per Day: <%= @car.price_per_day %></p>
+
+<h2>Make a Reservation</h2>
+<%= simple_form_for([@car, @car.bookings.build]) do |form| %>
+  <%= form.input :starts_at, as: :string, label: 'Start Date', input_html: { class: 'flatpickr-range' } %>
+  <%= form.input :ends_at, as: :string, label: 'End Date', input_html: { class: 'flatpickr-range' } %>
+
+  <%= form.button :submit, 'Reserve Car' %>
+<% end %>
+
+
+<%= link_to 'Show Car', car_path(@car) %>
+<%= link_to 'Back to  Cars', cars_path(@car) %>

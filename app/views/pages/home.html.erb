@@ -1,2 +1,16 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+
+
+<h1>Welcome to the Car Rental App</h1>
+
+<p>Here are the available cars:</p>
+
+<ul>
+  <% @cars.each do |car| %>
+    <li>
+      <%= link_to car.brand, car %>
+      <span>(Year: <%= car.year_of_production %>, Price per Day: <%= car.price_per_day %>)</span>
+    </li>
+  <% end %>
+</ul>
+
+<%= link_to "View All Cars", cars_path %>
